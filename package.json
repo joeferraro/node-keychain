@@ -3,6 +3,10 @@
   "version": "0.0.4",
   "description": "Basic access to the Mac OS X Keychain",
   "main": "keychain.js",
+  "dependencies": {
+    "bluebird": "~2.9.34",
+    "which": "~1.1.1"
+  },
   "devDependencies": {
     "mocha": "*",
     "should": "*"
