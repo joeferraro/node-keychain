@@ -7,7 +7,7 @@ module.exports = {
   addPassword: function(service, account, password) {
     var self = this;
     return new Promise(function(resolve, reject) {
-      var security = spawn(executablePath, [ 'add-internet-password', '-a', account, '-s', service, '-w', password ]);
+      var security = spawn(executablePath, [ 'add-generic-password', '-a', account, '-s', service, '-w', password ]);
       security.on('exit', function(code, signal) {
         if (code !== 0) {
           var msg = 'Security returned a non-successful error code: ' + code;
@@ -31,7 +31,7 @@ module.exports = {
   getPassword: function(service, account) {
     var self = this;
     return new Promise(function(resolve, reject) {
-      var security = spawn(executablePath, [ 'find-internet-password', '-a', account, '-s', service, '-g' ]);
+      var security = spawn(executablePath, [ 'find-generic-password', '-a', account, '-s', service, '-g' ]);
       var keychain = '';
       var password = '';
 
@@ -62,7 +62,7 @@ module.exports = {
   deletePassword: function(service, account) {
     var self = this;
     return new Promise(function(resolve, reject) {
-      var security = spawn(executablePath, [ 'delete-internet-password', '-a', account, '-s', service ]);
+      var security = spawn(executablePath, [ 'delete-generic-password', '-a', account, '-s', service ]);
 
       security.on('exit', function(code, signal) {
         if (code !== 0) {
