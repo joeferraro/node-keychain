@@ -1,6 +1,8 @@
+var path = require('path');
 var Promise = require('bluebird');
 var spawn = require('child_process').spawn;
 var executablePath;
+
 try {
   executablePath = which.sync('powershell.exe');
 } catch(e) {
